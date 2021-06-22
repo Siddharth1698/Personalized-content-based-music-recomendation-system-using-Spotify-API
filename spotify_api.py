@@ -15,13 +15,11 @@ import spotipy
 import spotipy.util
 import seaborn as sns
 
-
-os.environ["SPOTIPY_CLIENT_ID"] = 'bfed4b729c5849e0ade26af41997fe00'
-os.environ["SPOTIPY_CLIENT_SECRET"] = '2bf254cdd86e4896b593657294d9556b'
+os.environ["SPOTIPY_CLIENT_ID"] = '<Enter app id here>'
+os.environ["SPOTIPY_CLIENT_SECRET"] = '<Enter app secret id here>'
 os.environ["SPOTIPY_REDIRECT_URI"] = 'http://www.example.com'
-
 scope = 'user-library-read'
-username = 'Siddharth M'
+username = '<Enter your Username>'
 
 token = spotipy.util.prompt_for_user_token(username, scope)
 
