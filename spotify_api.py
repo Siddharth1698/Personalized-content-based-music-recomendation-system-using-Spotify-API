@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 import os
@@ -48,27 +45,14 @@ while saved_tracks_resp['next']:
     saved_tracks_resp = spotipy_obj.next(saved_tracks_resp)
     tracks.extend([save_only_some_fields(track) for track in saved_tracks_resp['items']])
 
-
-# In[2]:
-
-
 tracks_df = pd.DataFrame(tracks)
 pd.set_option('display.max_rows', len(tracks))
-
-
-# In[3]:
-
 
 #pd.reset_option('display.max_rows')
 
 tracks_df['artists'] = tracks_df['artists'].apply(lambda artists: artists[0])
 tracks_df['duration_ms'] = tracks_df['duration_ms'].apply(lambda duration: duration/1000)
-
 tracks_df = tracks_df.rename(columns = {'duration_ms':'duration_s'})
-
-
-
-# In[5]:
 
 
 audio_features = {}
@@ -88,27 +72,11 @@ tracks_df['loudness'] = tracks_df['id'].apply(lambda idd: audio_features[idd]['l
 tracks_df['danceability'] = tracks_df['id'].apply(lambda idd: audio_features[idd]['danceability'])
 tracks_df['valence'] = tracks_df['id'].apply(lambda idd: audio_features[idd]['valence'])
 
-
-
-
-
-# In[7]:
-
-
-
-
-
-
-
-# In[ ]:
-
-
-class getSong(): # cnn to rnn is hooked here.
+class getSong():
     def __init__(self):
         super(getSong, self).__init__()
         
     def passs():
-
         return tracks_df
 
 
